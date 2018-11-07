@@ -1,0 +1,357 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * CODNITIVE
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE_EULA.html.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.codnitive.com/en/terms-of-service-softwares/
+ * http://www.codnitive.com/fa/terms-of-service-softwares/
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade to newer
+ * versions in the future.
+ *
+ * @category   Codnitive
+ * @package    Codnitive_SalesExport
+ * @author     Hassan Barza <support@codnitive.com>
+ * @copyright  Copyright (c) 2012 CODNITIVE Co. (http://www.codnitive.com)
+ * @license    http://www.codnitive.com/en/terms-of-service-softwares/ End User License Agreement (EULA 1.0)
+ */
+-->
+
+<config>	
+    <sections>
+        <codnitivesalesexport translate="label" module="salesexport">
+            <label>Advanced Sales</label>
+            <tab>codall</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>600</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <salesexport translate="label, comment" module="salesexport">
+                    <label>Advanced Sales Export</label>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <heading_activation translate="label">
+                            <label>Activation</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </heading_activation>
+                        <sernum translate="label">
+                            <label>Serial Number</label>
+                            <frontend_type>obscure</frontend_type>
+                            <validate>required-entry</validate>
+                            <backend_model>salesexport/system_config_backend_encryptedserial</backend_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </sernum>
+                        <regcod translate="label">
+                            <label>Registration Code</label>
+                            <frontend_type>obscure</frontend_type>
+                            <validate>required-entry</validate>
+                            <backend_model>salesexport/system_config_backend_encryptedregcode</backend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </regcod>
+                        <ownnam translate="label">
+                            <label>Full Name</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>required-entry</validate>
+                            <backend_model>salesexport/system_config_backend_name</backend_model>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </ownnam>
+                        <ownmai translate="label">
+                            <label>Email Address</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-email required-entry</validate>
+                            <backend_model>salesexport/system_config_backend_email</backend_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </ownmai>
+                        
+                        <heading_config translate="label">
+                            <label>Configuration</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </heading_config>
+                        <active translate="label,comment">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <backend_model>salesexport/system_config_backend_cert</backend_model>
+                            <sort_order>31</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>This option affects on whole the extension.</comment>
+                        </active>
+                    </fields>
+                </salesexport>
+                
+                <orderesxport translate="label, comment" module="salesexport">
+                    <label>Advanced Orders Export</label>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>31</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </active>
+                    </fields>
+                </orderesxport>
+                
+                <invoicesexport translate="label, comment" module="salesexport">
+                    <label>Advanced Invoices Export</label>
+                    <sort_order>30</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>31</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </active>
+                        <export_page_size translate="label">
+                            <label>Export Default Page Size</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-digits</validate>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </export_page_size>
+                        <export_product_row translate="label">
+                            <label>Export Invoice Products</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </export_product_row>
+                        <invoice_grid_columns translate="label,comment,tooltip">
+                            <label>Invoice Grid Columns</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <export_product_row>0</export_product_row>
+                            </depends>
+                            <comment>Please enter JSON string. See tooltip for some examples.</comment>
+                            <tooltip><![CDATA[
+{<br />
+    "created_at": {"header": "Invoice Date", "type": "datetime"}, <br />
+    "order_increment_id": {"header": "Order #"}, <br />
+    "order_created_at": {"header": "Order Date", "type": "datetime"}, <br />
+    "billing_name": {"header": "Bill to Name"}, <br />
+    "state": {"header": "Status", "type": "options", "options": {"model": "sales/order_invoice", "method": "getStates"}}, <br />
+    "grand_total": {"header": "Amount", "type": "currency", "currency": "order_currency_code"}<br />
+}
+]]>
+                            </tooltip>
+                        </invoice_grid_columns>
+                        <product_grid_columns translate="label,comment,tooltip">
+                            <label>Product Grid Columns</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <export_product_row>1</export_product_row>
+                            </depends>
+                            <comment>Please enter JSON string. See tooltip for some examples.</comment>
+                            <tooltip><![CDATA[
+{<br />
+    "created_at": {"header": "Invoice Date", "type": "date"}, <br />
+    "sku": {"header": "SKU"}, <br />
+    "name": {"header": "Name"}, <br />
+    "qty": {"header": "Qty", "type": "integer"},<br />
+    "price": {"header": "Price", "type": "currency", "currency": "currency_code"}<br />
+}
+]]>
+                            </tooltip>
+                        </product_grid_columns>
+                        <add_order_data translate="label">
+                            <label>Add Order Data</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </add_order_data>
+                        <add_invoice_data translate="label">
+                            <label>Add Invoice Data</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <export_product_row>1</export_product_row>
+                            </depends>
+                        </add_invoice_data>
+                        
+                        <heading_invoice_style translate="label">
+                            <label>Excel XML Design</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>300</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </heading_invoice_style>
+                        <default_vertical_alignment translate="label">
+                            <label>Default Vertical Alignment</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>required-entry</validate>
+                            <sort_order>310</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </default_vertical_alignment>
+                        <default_font_name translate="label">
+                            <label>Default Font Name</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>required-entry</validate>
+                            <sort_order>320</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </default_font_name>
+                        <default_font_size translate="label">
+                            <label>Default Font Size</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>required-entry</validate>
+                            <sort_order>330</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </default_font_size>
+                        <default_text_color translate="label">
+                            <label>Default Text Color</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>required-entry</validate>
+                            <sort_order>340</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </default_text_color>
+                        <default_background_color translate="label">
+                            <label>Default Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>required-entry</validate>
+                            <sort_order>350</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </default_background_color>
+                        <default_border_color translate="label">
+                            <label>Border Color</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>required-entry</validate>
+                            <sort_order>360</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </default_border_color>
+                        
+                        <heading_invoice_style_shipping translate="label">
+                            <label>Excel Shipping Method Custom Design</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>400</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </heading_invoice_style_shipping>
+                        <shipping_methods translate="label,comment">
+                            <label>Shipping Method Names</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>410</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Please enter each shipping method name in a new line.</comment>
+                        </shipping_methods>
+                        <row_font_name translate="label">
+                            <label>Row Font Name</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>required-entry</validate>
+                            <sort_order>420</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </row_font_name>
+                        <row_font_size translate="label">
+                            <label>Row Font Size</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>required-entry</validate>
+                            <sort_order>430</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </row_font_size>
+                        <row_text_color translate="label">
+                            <label>Row Text Color</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>required-entry</validate>
+                            <sort_order>440</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </row_text_color>
+                        <row_background_color translate="label">
+                            <label>Row Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>required-entry</validate>
+                            <sort_order>450</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </row_background_color>
+                    </fields>
+                </invoicesexport>
+            </groups>
+        </codnitivesalesexport>
+    </sections>
+</config>

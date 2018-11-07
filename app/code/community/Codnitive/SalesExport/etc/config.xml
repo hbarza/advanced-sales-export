@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * CODNITIVE
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE_EULA.html.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.codnitive.com/en/terms-of-service-softwares/
+ * http://www.codnitive.com/fa/terms-of-service-softwares/
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade to newer
+ * versions in the future.
+ *
+ * @category   Codnitive
+ * @package    Codnitive_SalesExport
+ * @author     Hassan Barza <support@codnitive.com>
+ * @copyright  Copyright (c) 2012 CODNITIVE Co. (http://www.codnitive.com)
+ * @license    http://www.codnitive.com/en/terms-of-service-softwares/ End User License Agreement (EULA 1.0)
+ */
+-->
+
+<config>
+    <modules>
+        <Codnitive_SalesExport>
+            <version>1.0.00</version>
+            <title>Advanced Sales Export</title>
+            <link><![CDATA[http://www.codnitive.com/]]></link>
+            <codPool>community</codPool>
+        </Codnitive_SalesExport>
+    </modules>
+    <global>
+        <blocks>
+            <salesexport>
+                <class>Codnitive_SalesExport_Block</class>
+            </salesexport>
+        </blocks>
+        <helpers>
+            <salesexport>
+                <class>Codnitive_SalesExport_Helper</class>
+            </salesexport>
+        </helpers>
+        <models>
+            <salesexport>
+                <class>Codnitive_SalesExport_Model</class>
+            </salesexport>
+        </models>
+        <resources>
+            <salesexport_setup>
+                <setup>
+                    <module>Codnitive_SalesExport</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </salesexport_setup>
+            <salesexport_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </salesexport_write>
+            <salesexport_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </salesexport_read>
+        </resources>
+    </global>
+    
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Codnitive_SalesExport_Override before="Mage_Adminhtml">Codnitive_SalesExport_Override_Adminhtml</Codnitive_SalesExport_Override>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+	
+    <adminhtml>
+        <translate>
+            <modules>
+                <Codnitive_SalesExport>
+                    <files>
+                        <default>Codnitive_SalesExport.csv</default>
+                    </files>
+                </Codnitive_SalesExport>
+            </modules>
+        </translate>
+    </adminhtml>
+    
+    <frontend>
+        <layout>
+            <updates>
+                <salesexport>
+                    <file>codnitive/salesexport.xml</file>
+                </salesexport>
+            </updates>
+        </layout>
+    </frontend>
+	
+    <default>
+        <codnitivesalesexport>
+            <salesexport>
+                <active>0</active>
+                <chkfrq>518400</chkfrq>
+                <frtrn>1</frtrn>
+            </salesexport>
+            <orderesxport>
+                <active>1</active>
+            </orderesxport>
+            <invoicesexport>
+                <active>1</active>
+                <export_page_size>10</export_page_size>
+                <export_product_row>0</export_product_row>
+                <invoice_grid_columns><![CDATA[
+{
+    "created_at": {"header": "Invoice Date", "type": "datetime"}, 
+    "order_increment_id": {"header": "Order #"}, 
+    "order_created_at": {"header": "Order Date", "type": "datetime"}, 
+    "billing_name": {"header": "Bill to Name"}, 
+    "state": {"header": "Status", "type": "options", "options": {"model": "sales/order_invoice", "method": "getStates"}}, 
+    "grand_total": {"header": "Amount", "type": "currency", "currency": "order_currency_code"}
+}
+]]>
+                </invoice_grid_columns>
+                <product_grid_columns><![CDATA[
+{
+    "created_at": {"header": "Invoice Date", "type": "date"}, 
+    "sku": {"header": "SKU"}, 
+    "name": {"header": "Name"}, 
+    "qty": {"header": "Qty", "type": "integer"},
+    "price": {"header": "Price", "type": "currency", "currency": "currency_code"}
+}
+]]>
+                </product_grid_columns>
+                <add_order_data>1</add_order_data>
+                <add_invoice_data>1</add_invoice_data>
+                <default_vertical_alignment>Bottom</default_vertical_alignment>
+                <default_font_name>Calibri</default_font_name>
+                <default_font_size>11</default_font_size>
+                <default_text_color>#000000</default_text_color>
+                <default_background_color>#FFFFFF</default_background_color>
+                <default_border_color>#CCCCCC</default_border_color>
+                <row_font_name>Calibri</row_font_name>
+                <row_font_size>11</row_font_size>
+                <row_text_color>#000000</row_text_color>
+                <row_background_color>#FFFFFF</row_background_color>
+            </invoicesexport>
+        </codnitivesalesexport>
+    </default>
+</config>
